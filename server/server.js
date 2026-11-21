@@ -9,6 +9,7 @@ if (!process.env.JWT_SECRET) { console.error('Set JWT_SECRET in .env'); process.
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
 app.use(express.json({ limit: '100kb' }));
